@@ -1,0 +1,85 @@
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+				<div class="controls">
+					<nav class="links">
+						<ul>
+							<li><a href="/customer#index" class="ico1">客户资料 </a></li>
+							<li><a href="/" class="ico2">医生资料</a></li>
+							<li><a href="/" class="ico2">护士资料</a></li>
+						</ul>
+					</nav>
+					<div class="profile-box">
+						<span class="profile">
+							<a href="#" class="section">
+								<img class="image" src="images/img1.png" alt="image description" width="26" height="26" />
+								<span class="text-box">
+									<strong class="name">Welcome</strong>
+								</span>
+							</a>
+							<a href="#" class="opener">opener</a>
+						</span>
+						 <%= link_to('Logout', destroy_user_session_path, :method => :delete,class: 'btn-on') %>     
+					</div>
+				</div>
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<h1><p id="notice"><%= notice %></p></h1>
+							</div>
+							
+						<ul class="states" >
+							<%= form_tag '', :method => 'get' do %>
+							<p>
+							<%= text_field_tag :search_key, nil, placeholder: '请输入客户姓名...', size: 30 %>
+							<%= submit_tag "Search", :name => nil %>
+							</p>
+							<% end %>
+						</ul>
+							<ul class="states" >
+								<h1>客户列表</h1>
+								<table>
+								  <thead>
+								    <tr style="text-align: center; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold">
+										<th width='10%'>序号</th>
+										<th width='10%'>客户编号</th>
+								      	<th width='20%'>客户姓名</th>
+								      	<th width='20%' colspan="3">操作</th>
+								    </tr>
+								  </thead>
+
+								  <tbody>
+									  <% if @customers != nil %>
+								    <% @customers.each_with_index do |customer,i| %>
+								      <tr>
+										  <td align='center'><%= i+1 %></td>
+										  <td align='center'><%= customer.id %></td>
+								        <td align='center'><%= customer.name %></td>
+								        <td align='center'><%= link_to 'Show', person %></td>
+								        <td align='center'><%= link_to 'Edit', edit_person_path(person) %></td>
+								        <td align='center'><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								      </tr>
+								    <% end %>
+									<% end %>
+								  </tbody>
+								</table>
+							</br>
+							
+  每页显示<b><%= @customers.per_page %></b>条数据,共有<b><%= @customers.total_pages %></b>页,  共有<b><%= @customers.total_entries %></b>条数据</br>
+  <%= will_paginate @customers, :container => false %>
+								<br>
+
+								<%= link_to '新增客户', '' %>
+								
+							</ul>
+
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>

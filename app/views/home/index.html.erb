@@ -1,0 +1,45 @@
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+				<div class="controls">
+					<nav class="links">
+						<ul>
+							<li><a href="/customer#index" class="ico1">客户资料 </a></li>
+							<li><a href="/" class="ico2">医生资料</a></li>
+							<li><a href="/" class="ico2">护士资料</a></li>
+						</ul>
+					</nav>
+					<div class="profile-box">
+						<span class="profile">
+							<a href="#" class="section">
+								<img class="image" src="images/img1.png" alt="image description" width="26" height="26" />
+								<span class="text-box">
+									<strong class="name">Welcome</strong>
+								</span>
+							</a>
+							<a href="#" class="opener">opener</a>
+						</span>
+						 <%= link_to('Logout', destroy_user_session_path, :method => :delete,class: 'btn-on') %>     
+					</div>
+				</div>
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<h1>Search Anything......</h1>
+								<p>This is a quick to search something......</p>
+							</div>
+							<ul class="states">
+								<li class="error">Error : This is an error placed text message.</li>
+								<li class="warning">Warning: This is a warning placed text message.</li>
+								<li class="succes">Succes : This is a succes placed text message.</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
