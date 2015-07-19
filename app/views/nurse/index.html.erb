@@ -8,30 +8,30 @@
 						<ul class="states" >
 							<%= form_tag '', :method => 'get' do %>
 							<p>
-							<%= text_field_tag :search_key, nil, placeholder: '请输入客户姓名...', size: 30 %>
+							<%= text_field_tag :search_key, nil, placeholder: '请输入护士姓名...', size: 30 %>
 							<%= submit_tag "Search", :name => nil %>
 							</p>
 							<% end %>
 						</ul>
 							<ul class="states" >
-								<h1>客户列表</h1>
+								<h1>护士列表</h1>
 								<table>
 								  <thead>
 								    <tr style="text-align: center; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold">
 										<th width='10%'>序号</th>
-										<th width='10%'>客户编号</th>
-								      	<th width='20%'>客户姓名</th>
+										<th width='10%'>护士编号</th>
+								      	<th width='20%'>护士姓名</th>
 								      	<th width='20%' colspan="3">操作</th>
 								    </tr>
 								  </thead>
 
 								  <tbody>
-									  <% if @customers != nil %>
-								    <% @customers.each_with_index do |customer,i| %>
+									  <% if @nurses != nil %>
+								    <% @nurses.each_with_index do |nurse,i| %>
 								      <tr>
 										  <td align='center'><%= i+1 %></td>
-										  <td align='center'><%= customer.id %></td>
-								        <td align='center'><%= customer.name %></td>
+										  <td align='center'><%= nurse.id %></td>
+								        <td align='center'><%= nurse.name %></td>
 								        <td align='center'><%= link_to 'Show', person %></td>
 								        <td align='center'><%= link_to 'Edit', edit_person_path(person) %></td>
 								        <td align='center'><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -42,11 +42,11 @@
 								</table>
 							</br>
 							
-  每页显示<b><%= @customers.per_page %></b>条数据,共有<b><%= @customers.total_pages %></b>页,  共有<b><%= @customers.total_entries %></b>条数据</br>
-  <%= will_paginate @customers, :container => false %>
+  每页显示<b><%= @nurses.per_page %></b>条数据,共有<b><%= @nurses.total_pages %></b>页,  共有<b><%= @nurses.total_entries %></b>条数据</br>
+  <%= will_paginate @nurses, :container => false %>
 								<br>
 
-								<%= link_to '新增客户', 'customer/new' %>
+								<%= link_to '新增护士', 'doctor/new' %>
 								
 							</ul>
 

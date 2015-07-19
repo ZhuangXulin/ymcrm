@@ -9,7 +9,38 @@
   	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/js/jquery-1.7.2.min.js"><\/script>');</script>
   	<script type="text/javascript" src="/js/jquery.main.js"></script>
 </head>
-
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+				<div class="controls">
+					<nav class="links">
+						<ul>
+							<li><a href="/" class="ico1">首页 </a></li>
+							<li><a href="/customer#index" class="ico1">客户资料 </a></li>
+							<li><a href="/doctor#index" class="ico2">医生资料</a></li>
+							<li><a href="/nurse#index" class="ico2">护士资料</a></li>
+						</ul>
+					</nav>
+					<div class="profile-box">
+						<span class="profile">
+							<a href="#" class="section">
+								<img class="image" src="/images/img1.png" alt="image description" width="26" height="26" />
+								<span class="text-box">
+									<strong class="name">Welcome</strong>
+								</span>
+							</a>
+							<a href="#" class="opener">opener</a>
+						</span>
+						 <%= link_to('Logout', destroy_user_session_path, :method => :delete,class: 'btn-on') %>     
+					</div>
+				</div>
+				
 <%= yield %>
 
+			</div>
+		</div>
+		
+	</div>
+</body>
 </html>
