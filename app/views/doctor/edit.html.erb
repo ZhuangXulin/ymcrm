@@ -5,15 +5,15 @@
 				<h1><p id="notice"><%= notice %></p></h1>
 			</div>
 			<ul class="states" >
-				<h1>新增医生资料</h1>
-				<%= form_for (@doctor), :url => { :action => :create } do |f| %>
-					<% if @doctor.errors.any? %>
-     					<div id="error_explanation">
-       						<h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+				<h1>修改医生资料</h1>
+				<%= form_for(@doctor) do |f| %>
+<% if @doctor.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
  
-      					<ul>
-       						<% @doctor.errors.full_messages.each do |message| %>
-        	 				<li><%= message %></li>
+       <ul>
+       <% @doctor.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
        <% end %>
        </ul>
      </div>

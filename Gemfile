@@ -54,4 +54,5 @@ gem 'rolify'
 gem 'i18n'
 # Use paging plugin
 gem 'will_paginate', '~> 3.0'
+gem 'paperclip'
 

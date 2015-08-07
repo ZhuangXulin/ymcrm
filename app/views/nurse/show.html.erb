@@ -1,0 +1,28 @@
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<h1><p id="notice"><%= notice %></p></h1>
+							</div>
+							
+						<ul class="states" >
+							<h1>护士资料</h1>
+								<p>
+								  <strong>护士编号:</strong>
+								  <%= @nurse.nid %>
+								</p>
+								<p>
+								  <strong>护士姓名:</strong>
+								  <%= @nurse.name %>
+								</p>
+								<p>
+								  <strong>护士照片:</strong><br>
+								  <%= image_tag @nurse.photo.url(:big) %>
+								</p>
+								<%= link_to 'Edit', edit_nurse_path(@nurse) %> |
+								<%= link_to 'Back', '/nurse#index' %> | 
+							</ul>
+
+						</article>
+					</div>
+				</div>

@@ -21,7 +21,8 @@
 										<th width='10%'>序号</th>
 										<th width='10%'>医生编号</th>
 								      	<th width='20%'>医生姓名</th>
-								      	<th width='20%' colspan="3">操作</th>
+								      	<th width='30%'>医生照片</th>
+								      	<th width='30%' colspan="3">操作</th>
 								    </tr>
 								  </thead>
 
@@ -30,11 +31,12 @@
 								    <% @doctors.each_with_index do |doctor,i| %>
 								      <tr>
 										  <td align='center'><%= i+1 %></td>
-										  <td align='center'><%= doctor.id %></td>
+										  <td align='center'><%= doctor.did %></td>
 								        <td align='center'><%= doctor.name %></td>
-								        <td align='center'><%= link_to 'Show', person %></td>
-								        <td align='center'><%= link_to 'Edit', edit_person_path(person) %></td>
-								        <td align='center'><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								        <td align='center'><%= image_tag doctor.photo.url(:thumb) %></td>
+								        <td align='center'><%= link_to 'Show', doctor %></td>
+								        <td align='center'><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+								        <td align='center'><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 								      </tr>
 								    <% end %>
 									<% end %>
@@ -46,7 +48,7 @@
   <%= will_paginate @doctors, :container => false %>
 								<br>
 
-								<%= link_to '新增医生', 'doctor/new' %>
+								<%= link_to '新增医生', new_doctor_path %>
 								
 							</ul>
 

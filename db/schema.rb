@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719003243) do
+ActiveRecord::Schema.define(version: 20150807090425) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "cid",                          limit: 4
@@ -60,19 +60,27 @@ ActiveRecord::Schema.define(version: 20150719003243) do
   end
 
   create_table "doctors", force: :cascade do |t|
-    t.integer  "did",        limit: 4
-    t.string   "name",       limit: 255
-    t.string   "picture",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "did",                limit: 4
+    t.string   "name",               limit: 255
+    t.string   "picture",            limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 4
+    t.datetime "photo_updated_at"
   end
 
   create_table "nurses", force: :cascade do |t|
-    t.integer  "nid",        limit: 4
-    t.string   "name",       limit: 255
-    t.string   "picture",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "nid",                limit: 4
+    t.string   "name",               limit: 255
+    t.string   "picture",            limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 4
+    t.datetime "photo_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
