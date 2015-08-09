@@ -18,4 +18,8 @@ class Nurse < ActiveRecord::Base
     Nurse.paginate(:page => page ,:per_page => per_page)
   end
 
+  #获取全部的护士列表
+  def self.get_all_nurse
+    Nurse.all
+  end
 end

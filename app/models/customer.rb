@@ -10,5 +10,7 @@ class Customer < ActiveRecord::Base
     Customer.paginate_by_sql("select * from customers ",:page => page, :per_page => per_page)
   end
   
-  
+  def self.create()
+  	
+  end
 end

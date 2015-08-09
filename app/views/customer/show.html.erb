@@ -1,0 +1,133 @@
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<h1><p id="notice"><%= notice %></p></h1>
+							</div>
+							
+						<ul class="states" >
+							<h1>客户资料</h1>
+
+								<table border="1px" cellspacing="0px" cellpadding="0px">
+	<tr>
+		<td align="center" width="10%">客户编号</td>
+		<td width="20%"><%= @customer.cid %></td>
+		<td align="center" width="20%">姓名</td>
+		<td width="20%"><%= @customer.name %></td>
+		<td align="center" width="10%">身份证号</td>
+		<td width-"20%"><%= @customer.id_number %></td>
+	</tr>
+	<tr>
+    	<td align="center">生日</td>
+    	<td></td>
+    	<td align="center">性别</td>
+    	<td></td>
+    	<td align="center">婚姻</td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td align="center">联系电话</td>
+		<td colspan="3"></td>
+		<td align="center">民族</td>
+		<td></td>
+	</tr>
+	
+	<tr>
+    	<td align="center">医师</td>
+    	<td colspan="2"></td>
+    	<td align="center">护士</td>
+    	<td colspan="2"></td>
+	</tr>
+	
+	<tr>
+		<td align="center">联系地址</td>
+		<td colspan="3"></td>
+		<td align="center">籍贯</td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td align="center">疗程内容</td>
+		<td colspan="5"></td>
+	</tr>
+	
+	<tr>
+		<td align="center">职业</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">到店渠道</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">特殊病史</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">血型</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">手术史</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">服药史</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">美容史</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">治疗需求</td>
+		<td colspan="5">
+
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="center">其他</td>
+		<td colspan="5"></td>
+	</tr>
+	
+	<tr>
+		<td>疗程前后照片对比</td>
+		<td colspan="3">
+		<br>
+		</td>
+		<td colspan="2">
+		<br>
+		</td>
+	</tr>
+	
+</table>
+								<%= link_to 'Edit', edit_customer_path(@customer) %> |
+								<%= link_to 'Back', '/customer#index' %> | 
+							</ul>
+
+						</article>
+					</div>
+				</div>

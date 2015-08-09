@@ -17,4 +17,9 @@ class Doctor < ActiveRecord::Base
   def self.get_doctor_list(page)
     Doctor.paginate(:page => page ,:per_page => per_page)
   end
+
+  #获取全部的医生列表
+  def self.get_all_doctor
+    Doctor.all
+  end
 end

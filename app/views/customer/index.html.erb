@@ -30,11 +30,11 @@
 								    <% @customers.each_with_index do |customer,i| %>
 								      <tr>
 										  <td align='center'><%= i+1 %></td>
-										  <td align='center'><%= customer.id %></td>
+										  <td align='center'><%= customer.cid %></td>
 								        <td align='center'><%= customer.name %></td>
-								        <td align='center'><%= link_to 'Show', person %></td>
-								        <td align='center'><%= link_to 'Edit', edit_person_path(person) %></td>
-								        <td align='center'><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								        <td align='center'><%= link_to 'Show', customer %></td>
+								        <td align='center'><%= link_to 'Edit', edit_customer_path(customer) %></td>
+								        <td align='center'><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 								      </tr>
 								    <% end %>
 									<% end %>

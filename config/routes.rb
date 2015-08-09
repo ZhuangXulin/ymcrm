@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
+  resources :customer
   resources :doctor
   resources :nurse
   devise_for :users
