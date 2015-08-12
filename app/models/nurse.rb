@@ -1,6 +1,6 @@
 class Nurse < ActiveRecord::Base
   self.per_page = 15
-  # add paperclip 
+  # add paperclip nurse photo
   belongs_to :category
   has_attached_file :photo,
                     :styles => { :big => "600x600",

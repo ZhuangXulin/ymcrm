@@ -1,4 +1,4 @@
-<%= form_for (@customer), :url => { :action => :create } do |f| %>
+<%= form_for (@customer) , :url => { :action => :create } do |f| %>
   <% if @customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -24,10 +24,12 @@
     	<td align="center"><%= f.label :生日 %></td>
     	<td><%= f.text_field :birthday, size: 30 %></td>
     	<td align="center"><%= f.label :性别 %></td>
-    	<td><%= f.text_field :gender, size: 30 %></td>
+    	<td><%= radio_button :customer, :gender, :'男' %>男<br>
+			<%= radio_button :customer, :gender, :'女' %>女
+    	</td>
     	<td align="center"><%= f.label :婚姻 %></td>
-		<td><%= radio_button :customer,:marriage,:already %>已婚<br>
-			<%= radio_button :customer, :marriage, :no %>未婚</td>
+		<td><%= radio_button :customer, :marriage, :'已婚' %>已婚<br>
+			<%= radio_button :customer, :marriage, :'未婚' %>未婚</td>
 	</tr>
 	
 	<tr>
@@ -52,74 +54,74 @@
 		<td align="center"><%= f.label :联系地址%></td>
 		<td colspan="3"><%= f.text_field :address, size: 40 %></td>
 		<td align="center"><%= f.label :籍贯 %></td>
-		<td><%= f.text_field :address %></td>
+		<td><%= f.text_field :place_of_origin %></td>
 	</tr>
 	
 	<tr>
 		<td align="center"><%= f.label :疗程内容 %></td>
-		<td colspan="5"><%= f.text_area :nurse_id ,rows: 4, cols: 60%></td>
+		<td colspan="5"><%= f.text_area :course_content ,rows: 4, cols: 60%></td>
 	</tr>
 	
 	<tr>
 		<td align="center"><%= f.label :职业 %></td>
 		<td colspan="5">
-			<%= f.check_box :occupation, { :multiple => true },'1'  %>金融业
-			<%= f.check_box :occupation, { :multiple => true },'2'  %>信息业
-			<%= f.check_box :occupation, { :multiple => true },'3' %>军公教
-			<%= f.check_box :occupation, { :multiple => true },'4'  %>传播媒体
-			<%= f.check_box :occupation, { :multiple => true },'5'  %>服务业
-			<%= f.check_box :occupation, { :multiple => true },'6'  %>医疗
-			<%= f.check_box :occupation, { :multiple => true },'7'  %>家管
-			<%= f.check_box :occupation, { :multiple => true },'8'  %>其他
+			<%= f.check_box :occupation, { :multiple => true },'金融业'  %>金融业
+			<%= f.check_box :occupation, { :multiple => true },'信息业'  %>信息业
+			<%= f.check_box :occupation, { :multiple => true },'军工教' %>军公教
+			<%= f.check_box :occupation, { :multiple => true },'传播媒体'  %>传播媒体
+			<%= f.check_box :occupation, { :multiple => true },'服务业'  %>服务业
+			<%= f.check_box :occupation, { :multiple => true },'医疗'  %>医疗
+			<%= f.check_box :occupation, { :multiple => true },'家管'  %>家管
+			<%= f.check_box :occupation, { :multiple => true },'其他'  %>其他
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center"><%= f.label :到店渠道 %></td>
 		<td colspan="5">
-			<%= f.check_box :to_store_channel, { :multiple => true } , "1" %>招牌
-			<%= f.check_box :to_store_channel, { :multiple => true } , "2" %>网络
-			<%= f.check_box :to_store_channel, { :multiple => true } , "3" %>杂志
-			<%= f.check_box :to_store_channel, { :multiple => true } , "4" %>路过
-			<%= f.check_box :to_store_channel, { :multiple => true } , "5" %>亲友介绍
-			<%= f.check_box :to_store_channel, { :multiple => true } , "6" %>其他
+			<%= f.check_box :to_store_channel, { :multiple => true } , "招牌" %>招牌
+			<%= f.check_box :to_store_channel, { :multiple => true } , "网络" %>网络
+			<%= f.check_box :to_store_channel, { :multiple => true } , "杂志" %>杂志
+			<%= f.check_box :to_store_channel, { :multiple => true } , "路过" %>路过
+			<%= f.check_box :to_store_channel, { :multiple => true } , "亲友介绍" %>亲友介绍
+			<%= f.check_box :to_store_channel, { :multiple => true } , "其他" %>其他
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center"><%= f.label :特殊病史 %></td>
 		<td colspan="5">
-			<%= f.check_box :special_history, { :multiple => true } , "1" %>糖尿病
-			<%= f.check_box :special_history, { :multiple => true } , "2" %>高血压
-			<%= f.check_box :special_history, { :multiple => true } , "3" %>心脏病(包括装置心脏节律器)
-			<%= f.check_box :special_history, { :multiple => true } , "4" %>气喘或呼吸道疾病
+			<%= f.check_box :special_history, { :multiple => true } , "糖尿病" %>糖尿病
+			<%= f.check_box :special_history, { :multiple => true } , "高血压" %>高血压
+			<%= f.check_box :special_history, { :multiple => true } , "心脏病(包括装置心脏节律器)" %>心脏病(包括装置心脏节律器)
+			<%= f.check_box :special_history, { :multiple => true } , "气喘或呼吸道疾病" %>气喘或呼吸道疾病
 			<br>
-			<%= f.check_box :special_history, { :multiple => true } , "5" %>免疫系统疾病
-			<%= f.check_box :special_history, { :multiple => true } , "6" %>蟹足肿
-			<%= f.check_box :special_history, { :multiple => true } , "7" %>甲状腺低下
-			<%= f.check_box :special_history, { :multiple => true } , "8" %>亢进
-			<%= f.check_box :special_history, { :multiple => true } , "9" %>肾脏病
-			<%= f.check_box :special_history, { :multiple => true } , "10" %>B型肝炎
+			<%= f.check_box :special_history, { :multiple => true } , "免疫系统疾病" %>免疫系统疾病
+			<%= f.check_box :special_history, { :multiple => true } , "蟹足肿" %>蟹足肿
+			<%= f.check_box :special_history, { :multiple => true } , "甲状腺低下" %>甲状腺低下
+			<%= f.check_box :special_history, { :multiple => true } , "亢进" %>亢进
+			<%= f.check_box :special_history, { :multiple => true } , "肾脏病" %>肾脏病
+			<%= f.check_box :special_history, { :multiple => true } , "B型肝炎" %>B型肝炎
 			<br>
-			<%= f.check_box :special_history, { :multiple => true } , "11" %>C型肝炎
-			<%= f.check_box :special_history, { :multiple => true } , "12" %>贫血(或血红素低下病史)
-			<%= f.check_box :special_history, { :multiple => true } , "13" %>其他
-			<%= f.check_box :special_history, { :multiple => true } , "14" %>无
+			<%= f.check_box :special_history, { :multiple => true } , "C型肝炎" %>C型肝炎
+			<%= f.check_box :special_history, { :multiple => true } , "贫血(或血红素低下病史)" %>贫血(或血红素低下病史)
+			<%= f.check_box :special_history, { :multiple => true } , "其他" %>其他
+			<%= f.check_box :special_history, { :multiple => true } , "无" %>无
 			<br>
 			<%= f.label :是否怀孕 %>
-			<%= radio_button :pregnant,:pregnant, :no %>无
-			<%= radio_button :pregnant,:pregnant, :yes %>有
+			<%= radio_button :pregnant,:pregnant, :'无' %>无
+			<%= radio_button :pregnant,:pregnant, :'有' %>有
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center"><%= f.label :血型 %></td>
 		<td colspan="5">
-			<%= f.check_box :blood_type, { :multiple => true } , "1" %>A
-			<%= f.check_box :blood_type, { :multiple => true } , "2" %>B
-			<%= f.check_box :blood_type, { :multiple => true } , "3" %>AB
-			<%= f.check_box :blood_type, { :multiple => true } , "4" %>O
-			<%= f.check_box :blood_type, { :multiple => true } , "5" %>未知
+			<%= f.check_box :blood_type, { :multiple => true } , "A" %>A
+			<%= f.check_box :blood_type, { :multiple => true } , "B" %>B
+			<%= f.check_box :blood_type, { :multiple => true } , "AB" %>AB
+			<%= f.check_box :blood_type, { :multiple => true } , "O" %>O
+			<%= f.check_box :blood_type, { :multiple => true } , "未知" %>未知
 		</td>
 	</tr>
 	
@@ -145,29 +147,29 @@
 		<td align="center"><%= f.label :美容史 %></td>
 		<td colspan="5">
 			<%= f.label :美疗类： %>
-			<%= f.check_box :beauty_therapy, { :multiple => true } , "1" %>果酸换肤
-			<%= f.check_box :beauty_therapy, { :multiple => true } , "2" %>美白导入
-			<%= f.check_box :beauty_therapy, { :multiple => true } , "3" %>钻石微雕
-			<%= f.check_box :beauty_therapy, { :multiple => true } , "4" %>其他
+			<%= f.check_box :beauty_therapy, { :multiple => true } , "果酸换肤" %>果酸换肤
+			<%= f.check_box :beauty_therapy, { :multiple => true } , "美白导入" %>美白导入
+			<%= f.check_box :beauty_therapy, { :multiple => true } , "钻石微雕" %>钻石微雕
+			<%= f.check_box :beauty_therapy, { :multiple => true } , "其他" %>其他
 			<%= text_field :beauty_therapy_text, size: 30  %>
 			<br>
 			<%= f.label :光疗类： %>
-			<%= f.check_box :phototherapy, { :multiple => true } , "1" %>脉冲光
-			<%= f.check_box :phototherapy, { :multiple => true } , "2" %>雷射
-			<%= f.check_box :phototherapy, { :multiple => true } , "3" %>电波拉提
-			<%= f.check_box :phototherapy, { :multiple => true } , "4" %>其他
+			<%= f.check_box :phototherapy, { :multiple => true } , "脉冲光" %>脉冲光
+			<%= f.check_box :phototherapy, { :multiple => true } , "雷射" %>雷射
+			<%= f.check_box :phototherapy, { :multiple => true } , "电波拉提" %>电波拉提
+			<%= f.check_box :phototherapy, { :multiple => true } , "其他" %>其他
 			<%= text_field :phototherapy_text, size: 30  %>
 			<br>
 			<%= f.label :注射类： %>
-			<%= f.check_box :hyaluronic_acid, { :multiple => true } , "1" %>玻尿酸，部位
+			<%= f.check_box :hyaluronic_acid, { :multiple => true } , "玻尿酸" %>玻尿酸，部位
 			<%= text_field :hyaluronic_acid_text, size: 30  %>
-			<%= f.check_box :microcrystalline_porcelain, { :multiple => true } , "1" %>微晶瓷，部位
+			<%= f.check_box :microcrystalline_porcelain, { :multiple => true } , "微晶瓷" %>微晶瓷，部位
 			<%= text_field :microcrystalline_porcelain_text, size: 30  %>
 			<br><br>
-			<%= f.check_box :other_parts, { :multiple => true } , "1" %>其他，部位
+			<%= f.check_box :other_parts, { :multiple => true } , "其他" %>其他，部位
 			<%= text_field :other_parts_text, size: 30  %>
 			<br><br>
-			<%= f.check_box :plastic_part, { :multiple => true } , "1" %>整形手术：部位
+			<%= f.check_box :plastic_part, { :multiple => true } , "整形手术" %>整形手术：部位
 			<%= text_field :plastic_part_text, size: 30  %>
 		</td>
 	</tr>
@@ -176,41 +178,41 @@
 		<td align="center"><%= f.label :治疗需求 %></td>
 		<td colspan="5">
 			<%= f.label :肤质： %>
-			<%= f.check_box :skin, { :multiple => true } , "1" %>过敏
-			<%= f.check_box :skin, { :multiple => true } , "2" %>脱皮
-			<%= f.check_box :skin, { :multiple => true } , "3" %>湿疹
-			<%= f.check_box :skin, { :multiple => true } , "4" %>其他：<%= text_field :skin_text, size: 30  %>
+			<%= f.check_box :skin, { :multiple => true } , "过敏" %>过敏
+			<%= f.check_box :skin, { :multiple => true } , "脱皮" %>脱皮
+			<%= f.check_box :skin, { :multiple => true } , "湿疹" %>湿疹
+			<%= f.check_box :skin, { :multiple => true } , "其他" %>其他：<%= text_field :skin_text, size: 30  %>
 			<br>
 			<%= f.label :皱纹： %>
-			<%= f.check_box :wrinkle, { :multiple => true } , "1" %>细纹
-			<%= f.check_box :wrinkle, { :multiple => true } , "2" %>皮肤松弛
-			<%= f.check_box :wrinkle, { :multiple => true } , "3" %>其他：<%= text_field :wrinkle_text, size: 30  %>
+			<%= f.check_box :wrinkle, { :multiple => true } , "细纹" %>细纹
+			<%= f.check_box :wrinkle, { :multiple => true } , "皮肤松弛" %>皮肤松弛
+			<%= f.check_box :wrinkle, { :multiple => true } , "其他" %>其他：<%= text_field :wrinkle_text, size: 30  %>
 			<br>
 			<%= f.label :血管： %>
-			<%= f.check_box :blood_vessel, { :multiple => true } , "1" %>泛起
-			<%= f.check_box :blood_vessel, { :multiple => true } , "2" %>血丝明显
-			<%= f.check_box :blood_vessel, { :multiple => true } , "3" %>其他：<%= text_field :blood_vessel_text, size: 30  %>
+			<%= f.check_box :blood_vessel, { :multiple => true } , "泛起" %>泛起
+			<%= f.check_box :blood_vessel, { :multiple => true } , "血丝明显" %>血丝明显
+			<%= f.check_box :blood_vessel, { :multiple => true } , "其他" %>其他：<%= text_field :blood_vessel_text, size: 30  %>
 			<br>
 			<%= f.label :毛孔： %>
-			<%= f.check_box :pore, { :multiple => true } , "1" %>粗大
-			<%= f.check_box :pore, { :multiple => true } , "2" %>青春痘
-			<%= f.check_box :pore, { :multiple => true } , "3" %>暗疮
-			<%= f.check_box :pore, { :multiple => true } , "4" %>其他：<%= text_field :pore_text, size: 30  %>
+			<%= f.check_box :pore, { :multiple => true } , "粗大" %>粗大
+			<%= f.check_box :pore, { :multiple => true } , "青春痘" %>青春痘
+			<%= f.check_box :pore, { :multiple => true } , "暗疮" %>暗疮
+			<%= f.check_box :pore, { :multiple => true } , "其他" %>其他：<%= text_field :pore_text, size: 30  %>
 			<br>
 			<%= f.label :色素： %>
-			<%= f.check_box :pigment, { :multiple => true } , "1" %>黑斑
-			<%= f.check_box :pigment, { :multiple => true } , "2" %>肤色暗沉
-			<%= f.check_box :pigment, { :multiple => true } , "3" %>黑眼圈
-			<%= f.check_box :pigment, { :multiple => true } , "4" %>痘疤
-			<%= f.check_box :pigment, { :multiple => true } , "4" %>其他：<%= text_field :pigment_text, size: 30  %>
+			<%= f.check_box :pigment, { :multiple => true } , "黑斑" %>黑斑
+			<%= f.check_box :pigment, { :multiple => true } , "肤色暗沉" %>肤色暗沉
+			<%= f.check_box :pigment, { :multiple => true } , "黑眼圈" %>黑眼圈
+			<%= f.check_box :pigment, { :multiple => true } , "痘疤" %>痘疤
+			<%= f.check_box :pigment, { :multiple => true } , "其他" %>其他：<%= text_field :pigment_text, size: 30  %>
 			<br>
 			<%= f.label :体型： %>
-			<%= f.check_box :figure, { :multiple => true } , "1" %>胸部
-			<%= f.check_box :figure, { :multiple => true } , "2" %>腹部
-			<%= f.check_box :figure, { :multiple => true } , "3" %>臀部
-			<%= f.check_box :figure, { :multiple => true } , "4" %>腿部
-			<%= f.check_box :figure, { :multiple => true } , "5" %>手臂
-			<%= f.check_box :figure, { :multiple => true } , "6" %>其他：<%= text_field :figure_text, size: 30  %>
+			<%= f.check_box :figure, { :multiple => true } , "胸部" %>胸部
+			<%= f.check_box :figure, { :multiple => true } , "腹部" %>腹部
+			<%= f.check_box :figure, { :multiple => true } , "臀部" %>臀部
+			<%= f.check_box :figure, { :multiple => true } , "腿部" %>腿部
+			<%= f.check_box :figure, { :multiple => true } , "手臂" %>手臂
+			<%= f.check_box :figure, { :multiple => true } , "其他" %>其他：<%= text_field :figure_text, size: 30  %>
 		</td>
 	</tr>
 	
@@ -221,11 +223,13 @@
 	
 	<tr>
 		<td><%= f.label :疗程前后照片对比 %></td>
-		<td colspan="3"><%= f.label :疗程前 %>
+		<td colspan="2" align='center'><%= f.label :疗程前 %>
 		<br>
+		<%= f.file_field :old_photo %>
 		</td>
-		<td colspan="2"><%= f.label :疗程后 %>
+		<td colspan="3" align='center'><%= f.label :疗程后 %>
 		<br>
+		<%= f.file_field :new_photo %>
 		</td>
 	</tr>
 	
