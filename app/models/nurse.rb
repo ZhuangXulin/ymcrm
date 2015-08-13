@@ -22,4 +22,9 @@ class Nurse < ActiveRecord::Base
   def self.get_all_nurse
     Nurse.all
   end
+
+  #获取护士总数
+  def self.get_nurse_count
+    Nurse.count()
+  end
 end

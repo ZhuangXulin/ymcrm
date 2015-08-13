@@ -1,4 +1,4 @@
-<%= form_for (@customer) , :url => { :action => :create } do |f| %>
+<%= form_for (@customer) , :url => { :action => @action } do |f| %>
   <% if @customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -109,8 +109,8 @@
 			<%= f.check_box :special_history, { :multiple => true } , "无" %>无
 			<br>
 			<%= f.label :是否怀孕 %>
-			<%= radio_button :pregnant,:pregnant, :'无' %>无
-			<%= radio_button :pregnant,:pregnant, :'有' %>有
+			<%= radio_button :customer,:pregnant, :'无' %>无
+			<%= radio_button :customer,:pregnant, :'有' %>有
 		</td>
 	</tr>
 	
@@ -151,26 +151,26 @@
 			<%= f.check_box :beauty_therapy, { :multiple => true } , "美白导入" %>美白导入
 			<%= f.check_box :beauty_therapy, { :multiple => true } , "钻石微雕" %>钻石微雕
 			<%= f.check_box :beauty_therapy, { :multiple => true } , "其他" %>其他
-			<%= text_field :beauty_therapy_text, size: 30  %>
+			<input type="text" name="customer[beauty_therapy_text]" id="beauty_therapy_text" size="40" /> 
 			<br>
 			<%= f.label :光疗类： %>
 			<%= f.check_box :phototherapy, { :multiple => true } , "脉冲光" %>脉冲光
 			<%= f.check_box :phototherapy, { :multiple => true } , "雷射" %>雷射
 			<%= f.check_box :phototherapy, { :multiple => true } , "电波拉提" %>电波拉提
 			<%= f.check_box :phototherapy, { :multiple => true } , "其他" %>其他
-			<%= text_field :phototherapy_text, size: 30  %>
+			<input type="text" name="customer[phototherapy_text]" id="phototherapy_text" size="40" /> 
 			<br>
 			<%= f.label :注射类： %>
 			<%= f.check_box :hyaluronic_acid, { :multiple => true } , "玻尿酸" %>玻尿酸，部位
 			<%= text_field :hyaluronic_acid_text, size: 30  %>
 			<%= f.check_box :microcrystalline_porcelain, { :multiple => true } , "微晶瓷" %>微晶瓷，部位
-			<%= text_field :microcrystalline_porcelain_text, size: 30  %>
-			<br><br>
+			<input type="text" name="customer[microcrystalline_porcelain_text]" id="microcrystalline_porcelain_text" size="30" /> 
+			<br>
 			<%= f.check_box :other_parts, { :multiple => true } , "其他" %>其他，部位
-			<%= text_field :other_parts_text, size: 30  %>
+			<input type="text" name="customer[other_parts_text]" id="other_parts_text" size="30" /> 
 			<br><br>
 			<%= f.check_box :plastic_part, { :multiple => true } , "整形手术" %>整形手术：部位
-			<%= text_field :plastic_part_text, size: 30  %>
+			<input type="text" name="customer[plastic_part_text]" id="plastic_part_text" size="40" /> 
 		</td>
 	</tr>
 	
@@ -181,30 +181,35 @@
 			<%= f.check_box :skin, { :multiple => true } , "过敏" %>过敏
 			<%= f.check_box :skin, { :multiple => true } , "脱皮" %>脱皮
 			<%= f.check_box :skin, { :multiple => true } , "湿疹" %>湿疹
-			<%= f.check_box :skin, { :multiple => true } , "其他" %>其他：<%= text_field :skin_text, size: 30  %>
+			<%= f.check_box :skin, { :multiple => true } , "其他" %>其他：
+			<input type="text" name="customer[skin_text]" id="skin_text" size="40" /> 
 			<br>
 			<%= f.label :皱纹： %>
 			<%= f.check_box :wrinkle, { :multiple => true } , "细纹" %>细纹
 			<%= f.check_box :wrinkle, { :multiple => true } , "皮肤松弛" %>皮肤松弛
-			<%= f.check_box :wrinkle, { :multiple => true } , "其他" %>其他：<%= text_field :wrinkle_text, size: 30  %>
+			<%= f.check_box :wrinkle, { :multiple => true } , "其他" %>其他：
+			<input type="text" name="customer[wrinkle_text]" id="wrinkle_text" size="40" /> 
 			<br>
 			<%= f.label :血管： %>
 			<%= f.check_box :blood_vessel, { :multiple => true } , "泛起" %>泛起
 			<%= f.check_box :blood_vessel, { :multiple => true } , "血丝明显" %>血丝明显
-			<%= f.check_box :blood_vessel, { :multiple => true } , "其他" %>其他：<%= text_field :blood_vessel_text, size: 30  %>
+			<%= f.check_box :blood_vessel, { :multiple => true } , "其他" %>其他：
+			<input type="text" name="customer[blood_vessel_text]" id="blood_vessel_text" size="40" /> 
 			<br>
 			<%= f.label :毛孔： %>
 			<%= f.check_box :pore, { :multiple => true } , "粗大" %>粗大
 			<%= f.check_box :pore, { :multiple => true } , "青春痘" %>青春痘
 			<%= f.check_box :pore, { :multiple => true } , "暗疮" %>暗疮
-			<%= f.check_box :pore, { :multiple => true } , "其他" %>其他：<%= text_field :pore_text, size: 30  %>
+			<%= f.check_box :pore, { :multiple => true } , "其他" %>其他：
+			<input type="text" name="customer[pore_text]" id="pore_text" size="40" /> 
 			<br>
 			<%= f.label :色素： %>
 			<%= f.check_box :pigment, { :multiple => true } , "黑斑" %>黑斑
 			<%= f.check_box :pigment, { :multiple => true } , "肤色暗沉" %>肤色暗沉
 			<%= f.check_box :pigment, { :multiple => true } , "黑眼圈" %>黑眼圈
 			<%= f.check_box :pigment, { :multiple => true } , "痘疤" %>痘疤
-			<%= f.check_box :pigment, { :multiple => true } , "其他" %>其他：<%= text_field :pigment_text, size: 30  %>
+			<%= f.check_box :pigment, { :multiple => true } , "其他" %>其他：
+			<input type="text" name="customer[pigment_text]" id="pigment_text" size="40" /> 
 			<br>
 			<%= f.label :体型： %>
 			<%= f.check_box :figure, { :multiple => true } , "胸部" %>胸部
@@ -212,7 +217,8 @@
 			<%= f.check_box :figure, { :multiple => true } , "臀部" %>臀部
 			<%= f.check_box :figure, { :multiple => true } , "腿部" %>腿部
 			<%= f.check_box :figure, { :multiple => true } , "手臂" %>手臂
-			<%= f.check_box :figure, { :multiple => true } , "其他" %>其他：<%= text_field :figure_text, size: 30  %>
+			<%= f.check_box :figure, { :multiple => true } , "其他" %>其他：
+			<input type="text" name="customer[figure_text]" id="figure_text" size="40" /> 
 		</td>
 	</tr>
 	

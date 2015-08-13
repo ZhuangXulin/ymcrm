@@ -1,0 +1,28 @@
+<%= form_for (@nurse) , :url => { :action => @action } do |f| %>
+<% if @nurse.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@nurse.errors.count, "error") %> prohibited this nurse from being saved:</h2>
+ 
+       <ul>
+       <% @nurse.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+   <% end %>
+<table border="1px" cellspacing="0px" cellpadding="0px">
+	<tr>
+		<td align="center"><%= f.label :护士编号 %></td>
+		<td><%= f.text_field :nid, size: 20 %></td>
+		<td align="center"> <%= f.label :姓名 %></td>
+		<td><%= f.text_field :name, size: 30 %></td>
+    <td align="center"> <%= f.label :照片 %></td>
+    <td><%= f.file_field :photo %></td>
+	</tr>
+
+</table>
+<br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -23,7 +23,7 @@
     	<td align="center">性别</td>
     	<td><%= @customer.gender %></td>
     	<td align="center">婚姻</td>
-		<td></td>
+		<td><%= @customer.marriage %></td>
 	</tr>
 	
 	<tr>
@@ -54,14 +54,14 @@
 	
 	<tr>
 		<td align="center">职业</td>
-		<td colspan="5">
+		<td colspan="5"><%= @customer.occupation %>
 
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center">到店渠道</td>
-		<td colspan="5">
+		<td colspan="5"><%= @customer.to_store_channel %>
 
 		</td>
 	</tr>
@@ -69,20 +69,21 @@
 	<tr>
 		<td align="center">特殊病史</td>
 		<td colspan="5">
-
+			<%= @customer.special_history %><br>
+			是否怀孕:<%= @customer.pregnant %>
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center">血型</td>
-		<td colspan="5">
+		<td colspan="5"><%= @customer.blood_type %>
 
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center">手术史</td>
-		<td colspan="5">
+		<td colspan="5"><%= @customer.operation_history %>
 
 		</td>
 	</tr>
@@ -90,21 +91,31 @@
 	<tr>
 		<td align="center">服药史</td>
 		<td colspan="5">
-
+			是否对药物过敏:<%= @customer.drug_allergy %><br>
+			目前是否使用药物:<%= @customer.medicine %>
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center">美容史</td>
 		<td colspan="5">
-
+			美疗类:<%= @customer.beauty_therapy %><br>
+			光疗类:<%= @customer.phototherapy %><br>
+			注射类:<%= @customer.hyaluronic_acid %><br>
+			其他:<%= @customer.other_parts %><br>
+			整形手术:<%= @customer.plastic_part %>
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="center">治疗需求</td>
-		<td colspan="5">
-
+		<td colspan="5"> 
+			肤质:<%= @customer.skin %> <br>
+			皱纹:<%= @customer.wrinkle %> <br>
+			血管:<%= @customer.blood_vessel %> <br>
+			毛孔:<%= @customer.pore %> <br>
+			色素:<%= @customer.pigment %> <br>
+			体型:<%= @customer.figure %> <br>
 		</td>
 	</tr>
 	

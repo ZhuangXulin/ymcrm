@@ -8,10 +8,7 @@ class DoctorController < ApplicationController
   
   def new
     @doctor = Doctor.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @doctor }
-    end
+    @action = :create
   end
 
   #新增医生信息
@@ -31,6 +28,7 @@ class DoctorController < ApplicationController
   #修改医生信息
   def edit
     @doctor = Doctor.find(params[:id])
+     @action = :update
   end
 
   def update

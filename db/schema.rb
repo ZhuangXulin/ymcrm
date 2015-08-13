@@ -11,15 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809233950) do
+ActiveRecord::Schema.define(version: 20150813115116) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "cid",                          limit: 4
     t.string   "name",                         limit: 255
     t.string   "id_number",                    limit: 255
     t.string   "birthday",                     limit: 255
-    t.integer  "gender",                       limit: 4
-    t.integer  "marriage",                     limit: 4
     t.string   "nationality",                  limit: 255
     t.string   "sub_nationality",              limit: 255
     t.string   "email",                        limit: 255
@@ -28,11 +26,8 @@ ActiveRecord::Schema.define(version: 20150809233950) do
     t.string   "occupation",                   limit: 255
     t.string   "to_store_channel",             limit: 255
     t.string   "special_history",              limit: 255
-    t.integer  "pregnant",                     limit: 4
-    t.integer  "blood_type",                   limit: 4
     t.string   "operation_history",            limit: 255
     t.string   "drug_allergy",                 limit: 255
-    t.integer  "medicine",                     limit: 4
     t.string   "beauty_therapy",               limit: 255
     t.string   "phototherapy",                 limit: 255
     t.string   "hyaluronic_acid",              limit: 255
@@ -67,6 +62,11 @@ ActiveRecord::Schema.define(version: 20150809233950) do
     t.datetime "new_photo_updated_at"
     t.text     "course_content",               limit: 65535
     t.string   "place_of_origin",              limit: 255
+    t.string   "gender",                       limit: 255
+    t.string   "marriage",                     limit: 255
+    t.string   "pregnant",                     limit: 255
+    t.string   "blood_type",                   limit: 255
+    t.string   "medicine",                     limit: 255
   end
 
   create_table "doctors", force: :cascade do |t|

@@ -22,4 +22,9 @@ class Doctor < ActiveRecord::Base
   def self.get_all_doctor
     Doctor.all
   end
+
+  #获取医生总数
+  def self.get_doctor_count
+    Doctor.count()
+  end
 end

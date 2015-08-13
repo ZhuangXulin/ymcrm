@@ -8,6 +8,7 @@ class NurseController < ApplicationController
 
   def new
   	@nurse = Nurse.new
+    @action = :create
   end
 
   #新增护士信息
@@ -42,6 +43,7 @@ class NurseController < ApplicationController
   #更新护士信息
   def edit
   	@nurse = Nurse.find(params[:id])
+    @action = :update
   end
 
   def update
