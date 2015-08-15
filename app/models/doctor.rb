@@ -14,8 +14,8 @@ class Doctor < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
   
   #获取医生列表
-  def self.get_doctor_list(page)
-    Doctor.paginate(:page => page ,:per_page => per_page)
+  def self.get_doctor_list(search_key,page)
+    Doctor.where("name like ?","%#{search_key}%").paginate(:page => page ,:per_page => per_page)
   end
 
   #获取全部的医生列表

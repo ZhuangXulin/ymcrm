@@ -3,7 +3,7 @@ class DoctorController < ApplicationController
 
   #医生模块首页
   def index
-    @doctors = Doctor.get_doctor_list(params[:page])
+    @doctors = Doctor.get_doctor_list(params[:search_key],params[:page])
   end
   
   def new

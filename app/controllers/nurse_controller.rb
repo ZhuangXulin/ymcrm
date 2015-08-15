@@ -3,7 +3,7 @@ class NurseController < ApplicationController
 
   #护士模块首页
   def index
-    @nurses = Nurse.get_nurse_list(params[:page])
+    @nurses = Nurse.get_nurse_list(params[:search_key],params[:page])
   end
 
   def new

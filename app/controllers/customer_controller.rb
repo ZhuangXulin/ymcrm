@@ -1,8 +1,13 @@
 class CustomerController < ApplicationController
   before_filter :authenticate_user!
   
+  
   def index
-    @customers = Customer.get_customer_list(nil,params[:page])
+    #gem_customer_list(operation_id,search_key,page)
+    #operator_id:操作员id
+    #search_key:关键词
+    #page:当前页面
+    @customers = Customer.get_customer_list(nil,params[:search_key],params[:page])
   end
   
   #新增客户信息
@@ -142,6 +147,11 @@ class CustomerController < ApplicationController
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  #根据客户名称模糊搜索
+  def search
+    
   end
 
   private

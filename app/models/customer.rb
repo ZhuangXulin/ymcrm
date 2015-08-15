@@ -31,8 +31,9 @@ class Customer < ActiveRecord::Base
   
   
   #获取客户列表
-  def self.get_customer_list(operator_id,page)
-    Customer.paginate_by_sql("select * from customers ",:page => page, :per_page => per_page)
+  def self.get_customer_list(operator_id,search_key,page)
+    #Customer.paginate_by_sql("select * from customers ",:page => page, :per_page => per_page)
+    Customer.where("name like ?","%#{search_key}%").paginate(:page => page, :per_page => per_page)
   end
 
   #新增客户资料  
