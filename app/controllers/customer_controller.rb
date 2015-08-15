@@ -40,42 +40,15 @@ class CustomerController < ApplicationController
     customer_info['course_content'] = customer_params[:course_content]
 
     #职业
-    occupation = ''
-    for f in params[:customer][:occupation]
-      if f != '0'
-        occupation += f+'|'
-      end
-    end
-    customer_info['occupation'] = occupation
-
+    customer_info['occupation'] = customer_params[:occupation]
     #到店渠道
-    to_store_channel = ''
-    for f in params[:customer][:to_store_channel]
-      if f != '0'
-        to_store_channel += f+'|'
-      end
-    end
-    customer_info['to_store_channel'] = to_store_channel
-
+    customer_info['to_store_channel'] = customer_params[:to_store_channel]
     #特殊病史
-    special_history = ''
-    for f in params[:customer][:special_history]
-      if f != '0'
-        special_history += f+'|'
-      end
-    end
-    customer_info['special_history'] = special_history
+    customer_info['special_history'] = params[:customer][:special_history]
     #是否怀孕
     customer_info['pregnant'] = params[:customer][:pregnant]
-
     #血型
-    blood_type = ''
-    for f in params[:customer][:blood_type]
-      if f != '0'
-        blood_type += f+'|'
-      end
-    end
-    customer_info['blood_type'] = blood_type
+    customer_info['blood_type'] = params[:customer][:blood_type]
     #手术史
     customer_info['operation_history'] = customer_params[:operation_history]
     #是否对药物过敏
@@ -83,141 +56,41 @@ class CustomerController < ApplicationController
     #当前是否在服药
     customer_info['medicine'] = customer_params[:medicine]
     #美疗类
-    beauty_therapy = ''
-    for f in params[:customer][:beauty_therapy]
-      if f == '其他'
-        if params[:customer][:beauty_therapy_text] != ''
-          beauty_therapy += params[:customer][:beauty_therapy_text].to_s+'|'
-        end
-      elsif f != '0'
-          beauty_therapy += f+'|'
-      end
-    end
-    customer_info['beauty_therapy'] = beauty_therapy
+    customer_info['beauty_therapy'] = customer_params[:beauty_therapy]
+    customer_info['beauty_therapy_text'] = customer_params[:beauty_therapy_text]
     #光疗类
-    phototherapy = ''
-    for f in params[:customer][:phototherapy]
-      if f == '其他'
-        if params[:customer][:phototherapy_text] != ''
-          phototherapy += params[:customer][:phototherapy].to_s+'|'
-        end
-      elsif f != '0'
-          phototherapy += f+'|'
-      end
-    end
-    customer_info['phototherapy'] = phototherapy
+    customer_info['phototherapy'] = customer_params[:phototherapy]
+    customer_info['phototherapy_text'] = customer_params[:phototherapy_text]
     #注射类-玻尿酸
-    hyaluronic_acid = ''
-    for f in params[:customer][:hyaluronic_acid]
-      if f != '0'
-        if params[:customer][:hyaluronic_acid_text] != ''
-          hyaluronic_acid params[:customer][:hyaluronic_acid_text]
-        end
-      end
-    end
-    customer_info['hyaluronic_acid'] = hyaluronic_acid
+    customer_info['hyaluronic_acid'] = customer_params[:hyaluronic_acid]
+    customer_info['hyaluronic_acid_text'] = customer_params[:hyaluronic_acid_text]
     #注射类-微晶瓷
-    microcrystalline_porcelain = ''
-    for f in params[:customer][:microcrystalline_porcelain]
-      if f != '0'
-        if params[:customer][:microcrystalline_porcelain_text] != ''
-          microcrystalline_porcelain params[:customer][:microcrystalline_porcelain_text]
-        end
-      end
-    end
-    customer_info['microcrystalline_porcelain'] = microcrystalline_porcelain
+    customer_info['microcrystalline_porcelain'] = customer_params[:microcrystalline_porcelain]
+    customer_info['microcrystalline_porcelain_text'] = customer_params[:microcrystalline_porcelain_text]
     #注射类-其他
-    other_parts = ''
-    for f in params[:customer][:other_parts]
-      if f != '0'
-        if params[:customer][:other_parts_text] != ''
-          other_parts params[:customer][:other_parts_text]
-        end
-      end
-    end
-    customer_info['other_parts'] = other_parts
+    customer_info['other_parts'] = customer_params[:other_parts]
+    customer_info['other_parts_text'] = customer_params[:other_parts_text]
     #整形手术
-    plastic_part = ''
-    for f in params[:customer][:plastic_part]
-      if f != '0'
-        if params[:customer][:plastic_part_text] != ''
-          plastic_part params[:customer][:plastic_part_text]
-        end
-      end
-    end
-    customer_info['plastic_part'] = plastic_part
+    customer_info['plastic_part'] = customer_params[:plastic_part]
+    customer_info['plastic_part_text'] = customer_params[:plastic_part_text]
     #治疗需求-肤质
-    skin = ''
-    for f in params[:customer][:skin]
-      if f == '其他'
-        if params[:customer][:skin_text] != ''
-          skin += params[:customer][:skin_text].to_s+'|'
-        end
-      elsif f != '0'
-          skin += f+'|'
-      end
-    end
-    customer_info['skin'] = skin
+    customer_info['skin'] = customer_params[:skin]
+    customer_info['skin_text'] = customer_params[:skin_text]
     #治疗需求-皱纹
-    wrinkle = ''
-    for f in params[:customer][:wrinkle]
-      if f == '其他'
-        if params[:customer][:wrinkle_text] != ''
-          wrinkle += params[:customer][:wrinkle_text].to_s+'|'
-        end
-      elsif f != '0'
-          wrinkle += f+'|'
-      end
-    end
-    customer_info['wrinkle'] = wrinkle
+    customer_info['wrinkle'] = customer_params[:wrinkle]
+    customer_info['wrinkle_text'] = customer_params[:wrinkle_text]
     #治疗需求-血管
-    blood_vessel = ''
-    for f in params[:customer][:blood_vessel]
-      if f == '其他'
-        if params[:customer][:blood_vessel_text] != ''
-          blood_vessel += params[:customer][:blood_vessel_text].to_s+'|'
-        end
-      elsif f != '0'
-          blood_vessel += f+'|'
-      end
-    end
-    customer_info['blood_vessel'] = blood_vessel
+    customer_info['blood_vessel'] = customer_params[:blood_vessel]
+    customer_info['blood_vessel_text'] = customer_params[:blood_vessel_text]
     #治疗需求-毛孔
-    pore = ''
-    for f in params[:customer][:pore]
-      if f == '其他'
-        if params[:customer][:pore_text] != ''
-          pore += params[:customer][:pore_text].to_s+'|'
-        end
-      elsif f != '0'
-          pore += f+'|'
-      end
-    end
-    customer_info['pore'] = pore
+    customer_info['pore'] = customer_params[:pore]
+    customer_info['pore_text'] = customer_params[:pore_text]
     #治疗需求-色素
-    pigment = ''
-    for f in params[:customer][:pigment]
-      if f == '其他'
-        if params[:customer][:pigment_text] != ''
-          pigment += params[:customer][:pigment_text].to_s+'|'
-        end
-      elsif f != '0'
-          pigment += f+'|'
-      end
-    end
-    customer_info['pigment'] = pigment
+    customer_info['pigment'] = customer_params[:pigment]
+    customer_info['pigment_text'] = customer_params[:pigment_text]
     #治疗需求-体型
-    figure = ''
-    for f in params[:customer][:figure]
-      if f == '其他'
-        if params[:customer][:figure_text] != ''
-          figure += params[:customer][:figure_text].to_s+'|'
-        end
-      elsif f != '0'
-          figure += f+'|'
-      end
-    end
-    customer_info['figure'] = figure
+    customer_info['figure'] = customer_params[:figure]
+    customer_info['figure_text'] = customer_params[:figure_text]
     #其他信息
     customer_info['other_info'] = customer_params[:other_info]
     #治疗前照片
@@ -276,9 +149,16 @@ class CustomerController < ApplicationController
     params.require(:customer).permit( :cid, :name, :id_number, :birthday, :gender, 
                                       :marriage, :phone, :sub_nationality, :doctor_id, 
                                       :nurse_id, :address, :pregnant, :operation_history,
-                                      :drug_allergy, :medicine,
-                                      :blood_type, :beauty_therapy, :phototherapy,
-                                      :other_info,
+                                      :drug_allergy, :medicine,{:occupation => []} ,{:to_store_channel => []}, 
+                                      {:special_history => []},
+                                      {:blood_type => []}, {:beauty_therapy => []}, {:phototherapy => []},
+                                      {:hyaluronic_acid => []},{:microcrystalline_porcelain => []},
+                                      {:skin => []},{:wrinkle => []},{:blood_vessel => []},{:pore => []},
+                                      {:pigment => []},{:figure => []},:beauty_therapy_text,:phototherapy_text,
+                                      :hyaluronic_acid_text,:microcrystalline_porcelain_text,:other_parts,
+                                      :other_parts_text,:plastic_part,
+                                      :plastic_part_text,:skin_text,:wrinkle_text,:blood_vessel_text,:pore_text,
+                                      :pigment_text,:figure_text,:other_info,
                                       :old_photo, :new_photo, :place_of_origin, :course_content )
   end
 end

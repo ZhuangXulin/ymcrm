@@ -66,7 +66,19 @@ class Customer < ActiveRecord::Base
                   :other_parts => customer_info['other_parts'],        #注射类-其他
                   :plastic_part => customer_info['plastic_part'],        #整形手术
                   :old_photo => customer_info['old_photo'],        #治疗前照片
-                  :new_photo => customer_info['new_photo']         #治疗后照片
+                  :new_photo => customer_info['new_photo'],         #治疗后照片
+                  :beauty_therapy_text => customer_info['beauty_therapy_text'],   #美疗类其他
+                  :phototherapy_text => customer_info[:phototherapy_text],   #光疗类其他
+                  :hyaluronic_acid_text => customer_info['hyaluronic_acid_text'],    #玻尿酸部位
+                  :microcrystalline_porcelain_text => customer_info['microcrystalline_porcelain_text'],   #微晶瓷部位
+                  :other_parts_text => customer_info['other_parts_text'],    #其他部位
+                  :plastic_part_text => customer_info['plastic_part_text'],   #整形手术部位
+                  :skin_text => customer_info['skin_text'],     #肤质其他
+                  :wrinkle_text => customer_info['wrinkle_text'],   #皱纹其他
+                  :blood_vessel_text => customer_info['blood_vessel_text'],   #血管其他
+                  :pore_text => customer_info['pore_text'],      #毛孔其他
+                  :pigment_text => customer_info['pigment_text'],   #色素其他
+                  :figure_text => customer_info['figure_text']   #体型其他
                 )
 
   end

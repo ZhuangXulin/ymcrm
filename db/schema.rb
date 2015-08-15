@@ -11,62 +11,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813115116) do
+ActiveRecord::Schema.define(version: 20150815084422) do
 
   create_table "customers", force: :cascade do |t|
-    t.integer  "cid",                          limit: 4
-    t.string   "name",                         limit: 255
-    t.string   "id_number",                    limit: 255
-    t.string   "birthday",                     limit: 255
-    t.string   "nationality",                  limit: 255
-    t.string   "sub_nationality",              limit: 255
-    t.string   "email",                        limit: 255
-    t.integer  "doctor_id",                    limit: 4
-    t.integer  "nurse_id",                     limit: 4
-    t.string   "occupation",                   limit: 255
-    t.string   "to_store_channel",             limit: 255
-    t.string   "special_history",              limit: 255
-    t.string   "operation_history",            limit: 255
-    t.string   "drug_allergy",                 limit: 255
-    t.string   "beauty_therapy",               limit: 255
-    t.string   "phototherapy",                 limit: 255
-    t.string   "hyaluronic_acid",              limit: 255
-    t.string   "microcrystalline_porcelain",   limit: 255
-    t.string   "other_parts",                  limit: 255
-    t.string   "plastic_part",                 limit: 255
-    t.string   "skin",                         limit: 255
-    t.string   "wrinkle",                      limit: 255
-    t.string   "blood_vessel",                 limit: 255
-    t.string   "pore",                         limit: 255
-    t.string   "pigment",                      limit: 255
-    t.string   "figure",                       limit: 255
-    t.string   "other_info",                   limit: 255
-    t.string   "picture_url",                  limit: 255
-    t.string   "before_treatment_picture_url", limit: 255
-    t.string   "after_treatment_picture_url",  limit: 255
-    t.string   "phone",                        limit: 255
-    t.integer  "consultant_id",                limit: 4
-    t.integer  "channel_id",                   limit: 4
-    t.string   "remarks",                      limit: 255
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.integer  "operator_id",                  limit: 4
-    t.string   "address",                      limit: 255
-    t.string   "old_photo_file_name",          limit: 255
-    t.string   "old_photo_content_type",       limit: 255
-    t.integer  "old_photo_file_size",          limit: 4
+    t.integer  "cid",                             limit: 4
+    t.string   "name",                            limit: 255
+    t.string   "id_number",                       limit: 255
+    t.string   "birthday",                        limit: 255
+    t.string   "nationality",                     limit: 255
+    t.string   "sub_nationality",                 limit: 255
+    t.string   "email",                           limit: 255
+    t.integer  "doctor_id",                       limit: 4
+    t.integer  "nurse_id",                        limit: 4
+    t.string   "occupation",                      limit: 255
+    t.string   "to_store_channel",                limit: 255
+    t.string   "special_history",                 limit: 255
+    t.string   "operation_history",               limit: 255
+    t.string   "drug_allergy",                    limit: 255
+    t.string   "beauty_therapy",                  limit: 255
+    t.string   "phototherapy",                    limit: 255
+    t.string   "hyaluronic_acid",                 limit: 255
+    t.string   "microcrystalline_porcelain",      limit: 255
+    t.string   "other_parts",                     limit: 255
+    t.string   "plastic_part",                    limit: 255
+    t.string   "skin",                            limit: 255
+    t.string   "wrinkle",                         limit: 255
+    t.string   "blood_vessel",                    limit: 255
+    t.string   "pore",                            limit: 255
+    t.string   "pigment",                         limit: 255
+    t.string   "figure",                          limit: 255
+    t.string   "other_info",                      limit: 255
+    t.string   "picture_url",                     limit: 255
+    t.string   "before_treatment_picture_url",    limit: 255
+    t.string   "after_treatment_picture_url",     limit: 255
+    t.string   "phone",                           limit: 255
+    t.integer  "consultant_id",                   limit: 4
+    t.integer  "channel_id",                      limit: 4
+    t.string   "remarks",                         limit: 255
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "operator_id",                     limit: 4
+    t.string   "address",                         limit: 255
+    t.string   "old_photo_file_name",             limit: 255
+    t.string   "old_photo_content_type",          limit: 255
+    t.integer  "old_photo_file_size",             limit: 4
     t.datetime "old_photo_updated_at"
-    t.string   "new_photo_file_name",          limit: 255
-    t.string   "new_photo_content_type",       limit: 255
-    t.integer  "new_photo_file_size",          limit: 4
+    t.string   "new_photo_file_name",             limit: 255
+    t.string   "new_photo_content_type",          limit: 255
+    t.integer  "new_photo_file_size",             limit: 4
     t.datetime "new_photo_updated_at"
-    t.text     "course_content",               limit: 65535
-    t.string   "place_of_origin",              limit: 255
-    t.string   "gender",                       limit: 255
-    t.string   "marriage",                     limit: 255
-    t.string   "pregnant",                     limit: 255
-    t.string   "blood_type",                   limit: 255
-    t.string   "medicine",                     limit: 255
+    t.text     "course_content",                  limit: 65535
+    t.string   "place_of_origin",                 limit: 255
+    t.string   "gender",                          limit: 255
+    t.string   "marriage",                        limit: 255
+    t.string   "pregnant",                        limit: 255
+    t.string   "blood_type",                      limit: 255
+    t.string   "medicine",                        limit: 255
+    t.string   "beauty_therapy_text",             limit: 255
+    t.string   "phototherapy_text",               limit: 255
+    t.string   "hyaluronic_acid_text",            limit: 255
+    t.string   "microcrystalline_porcelain_text", limit: 255
+    t.string   "other_parts_text",                limit: 255
+    t.string   "plastic_part_text",               limit: 255
+    t.string   "skin_text",                       limit: 255
+    t.string   "wrinkle_text",                    limit: 255
+    t.string   "blood_vessel_text",               limit: 255
+    t.string   "pore_text",                       limit: 255
+    t.string   "pigment_text",                    limit: 255
+    t.string   "figure_text",                     limit: 255
   end
 
   create_table "doctors", force: :cascade do |t|
