@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815084422) do
+ActiveRecord::Schema.define(version: 20150817024305) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "cid",                             limit: 4
@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(version: 20150815084422) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "medicines", force: :cascade do |t|
+    t.integer  "mid",         limit: 4
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "nurses", force: :cascade do |t|
     t.integer  "nid",                limit: 4
     t.string   "name",               limit: 255
@@ -113,6 +121,24 @@ ActiveRecord::Schema.define(version: 20150815084422) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "treatments", force: :cascade do |t|
+    t.integer  "cid",               limit: 4
+    t.text     "treatment_content", limit: 65535
+    t.integer  "mid",               limit: 4
+    t.string   "medicine_number",   limit: 255
+    t.string   "gift",              limit: 255
+    t.string   "price",             limit: 255
+    t.string   "discount",          limit: 255
+    t.string   "discounted_price",  limit: 255
+    t.string   "actual_income",     limit: 255
+    t.text     "remark",            limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "treatments", ["cid"], name: "index_treatments_on_cid", using: :btree
+  add_index "treatments", ["mid"], name: "index_treatments_on_mid", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

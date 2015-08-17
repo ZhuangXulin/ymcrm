@@ -1,0 +1,75 @@
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<h1><p id="notice"><%= notice %></p></h1>
+							</div>
+							
+						<ul class="states" >
+							<%= form_tag '', :method => 'get' do %>
+							<p>
+							<%= text_field_tag :search_key, nil, placeholder: '请输入客户姓名...', size: 30 %>
+							<%= submit_tag "Search", :name => nil %>
+							</p>
+							<% end %>
+						</ul>
+							<ul class="states" >
+								<h1>疗程信息列表</h1>
+								<table>
+								  <thead>
+								    <tr style="text-align: center; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold">
+										<th width='5%'>序号</th>
+										<th width='5%'>时间</th>
+										<th width='5%'>客户编号</th>
+								      	<th width='5%'>客户姓名</th>
+								      	<th width='10%'>项目内容</th>
+								      	<th width='10%'>药品种</th>
+								      	<th width='5%'>药用量</th>
+								      	<th width='5%'>赠品</th>
+								      	<th width='5%'>价格</th>
+								      	<th width='5%'>折扣</th>
+								      	<th wifth='5%'>折扣后价格</th>
+								      	<th width='5%'>实收</th>
+								      	<th width='10%'>备注</th>
+								      	<th width='10%' colspan="3">操作</th>
+								    </tr>
+								  </thead>
+
+								  <tbody>
+									  <% if @treatment != nil %>
+								    <% @treatment.each_with_index do |treatment,i| %>
+								      <tr>
+										<td align='center'><%= i+1 %></td>
+										<td align='center'><%= treatment.created_at.localtime%></td>
+								        <td align='center'><%= treatment.cid%></td>
+								        <td align='center'><%= treatment.cname%></td>
+								        <td align='center'><%= treatment.treatment_content%></td>
+								        <td align='center'><%= treatment.mname%></td>
+								        <td align='center'><%= treatment.medicine_number%></td>
+								        <td align='center'><%= treatment.gift%></td>
+								        <td align='center'><%= treatment.price%></td>
+								        <td align='center'><%= treatment.discount%></td>
+								        <td align='center'><%= treatment.discounted_price%></td>
+								        <td align='center'><%= treatment.actual_income%></td>
+								        <td align='center'><%= treatment.remark%></td>
+								        <td align='center'><%= link_to 'Show', treatment %></td>
+								        <td align='center'><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
+								        <td align='center'><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								      </tr>
+								    <% end %>
+									<% end %>
+								  </tbody>
+								</table>
+							</br>
+							
+  每页显示<b><%= @treatment.per_page %></b>条数据,共有<b><%= @treatment.total_pages %></b>页,  共有<b><%= @treatment.total_entries %></b>条数据</br>
+  <%= will_paginate @treatment, :container => false %>
+								<br>
+
+								<%= link_to '新增疗程', 'treatment/new' %>
+								
+							</ul>
+
+						</article>
+					</div>
+				</div>

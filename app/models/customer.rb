@@ -94,4 +94,10 @@ class Customer < ActiveRecord::Base
   def self.get_customer_count
     Customer.count()
   end
+
+  #获取全部的客户列表
+  def self.get_all_customer
+    Customer.all
+  end
+
 end

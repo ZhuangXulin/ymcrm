@@ -1,0 +1,58 @@
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<h1><p id="notice"><%= notice %></p></h1>
+							</div>
+							
+						<ul class="states" >
+							<h1>疗程信息</h1>
+								<p>
+								  <strong>疗程编号:</strong>
+								  <%= @treatment.id %>
+								</p>
+								<p>
+								  <strong>客户编号:</strong>
+								  <%= @treatment.cid %>
+								</p>
+								<p>
+								  <strong>客户名称:</strong>
+								  <%= @treatment.cname %>
+								</p>
+								<p>
+								  <strong>疗程项目内容:</strong><br>
+								  <%= @treatment.treatment_content %>
+								</p>
+								<p>
+								  <strong>药品种:</strong>
+								  <%= @treatment.mname %>
+								</p>
+								<p>
+								  <strong>药用量:</strong>
+								  <%= @treatment.medicine_number %>
+								</p>
+								<p>
+								  <strong>赠品:</strong><br>
+								  <%= @treatment.gift %>
+								</p>
+								<p>
+								  <strong>价格:</strong>
+								  <%= @treatment.price %>&nbsp;&nbsp;&nbsp;&nbsp;
+								  <strong>折扣:</strong>
+								  <%= @treatment.discount %>&nbsp;&nbsp;&nbsp;&nbsp;
+								  <strong>折扣后价格:</strong>
+								  <%= @treatment.discounted_price %>&nbsp;&nbsp;&nbsp;&nbsp;
+								  <strong>实收:</strong>
+								  <%= @treatment.actual_income %>
+								</p>
+								<p>
+								  <strong>备注:</strong><br>
+								  <%= @treatment.remark %>
+								</p>
+								<%= link_to 'Edit', edit_treatment_path(@treatment) %> |
+								<%= link_to 'Back', '/treatment#index' %> | 
+							</ul>
+
+						</article>
+					</div>
+				</div>

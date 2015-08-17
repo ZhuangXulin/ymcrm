@@ -1,0 +1,28 @@
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<h1><p id="notice"><%= notice %></p></h1>
+							</div>
+							
+						<ul class="states" >
+							<h1>药品信息</h1>
+								<p>
+								  <strong>药品编号:</strong>
+								  <%= @medicine.mid %>
+								</p>
+								<p>
+								  <strong>药品名称:</strong>
+								  <%= @medicine.name %>
+								</p>
+								<p>
+								  <strong>描述:</strong><br>
+								  <%= @medicine.description %>
+								</p>
+								<%= link_to 'Edit', edit_medicine_path(@medicine) %> |
+								<%= link_to 'Back', '/medicine#index' %> | 
+							</ul>
+
+						</article>
+					</div>
+				</div>

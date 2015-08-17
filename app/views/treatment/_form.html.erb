@@ -1,0 +1,66 @@
+<%= form_for (@treatment) , :url => { :action => @action } do |f| %>
+  <% if @treatment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@treatment.errors.count, "error") %> prohibited this treatment from being saved:</h2>
+
+      <ul>
+      <% @treatment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table border="1px" cellspacing="0px" cellpadding="0px">
+	<tr>
+		<td align="center"> <%= f.label :姓名 %></td>
+		<td colspan="5">
+			<%= select 'treatment',:cid, Customer.get_all_customer.collect {|c| [ c.name, c.cid ] } %> 
+		</td>
+	</tr>
+	<tr>
+    	<td align="center"><%= f.label :项目内容 %></td>
+    	<td colspan="5"><%= f.text_area :treatment_content ,rows: 6, cols: 80 %></td>
+	</tr>
+	
+	<tr>
+		<td align="center"><%= f.label :药品种 %></td>
+		<td colspan="2">
+			<%= select 'treatment',:mid, Medicine.get_all_medicine.collect {|m| [ m.name, m.mid ] } %>
+		</td>
+		<td align="center"><%= f.label :药用量 %></td>
+		<td colspan="2"><%= f.text_field :medicine_number , size: 30 %></td>
+	</tr>
+	
+	<tr>
+    	<td align="center"><%= f.label :赠品 %></td>
+    	<td colspan="5">
+    		<%= f.text_area :gift ,rows: 6, cols: 80 %>
+    	</td>
+	</tr>
+	
+	<tr>
+		<td align="center"><%= f.label :价格%></td>
+		<td ><%= f.text_field :price, size: 40 %></td>
+		<td align="center"><%= f.label :折扣 %></td>
+		<td><%= f.text_field :discount %></td>
+		<td align="center"><%= f.label :折扣后价格 %></td>
+		<td><%= f.text_field :discounted_price %></td>
+	</tr>
+	<tr>
+		<td align="center"><%= f.label :实收 %></td>
+		<td colspan="5"><%= f.text_field :actual_income ,size: 30%></td>
+	</tr>
+	
+	
+	<tr>
+		<td align="center"><%= f.label :备注 %></td>
+		<td colspan="5"><%= f.text_area :remark ,rows: 6, cols: 80%></td>
+	</tr>
+	
+</table>
+<br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

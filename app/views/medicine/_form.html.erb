@@ -1,0 +1,30 @@
+<%= form_for (@medicine) , :url => { :action => @action } do |f| %>
+<% if @medicine.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
+ 
+       <ul>
+       <% @medicine.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+   <% end %>
+<table border="1px" cellspacing="0px" cellpadding="0px">
+	<tr>
+		<td align="center"><%= f.label :药品编号 %></td>
+		<td><%= f.text_field :mid, size: 20 %></td>
+		<td align="center"> <%= f.label :药品名称 %></td>
+		<td><%= f.text_field :name, size: 30 %></td>
+	</tr>
+  <tr>
+    <td align="center"> <%= f.label :药品描述 %></td>
+    <td colspan="3"><%= f.text_area :description ,rows: 4, cols: 60 %></td>
+  </tr>
+
+</table>
+<br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
