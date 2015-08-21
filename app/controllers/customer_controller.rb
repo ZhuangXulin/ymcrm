@@ -8,6 +8,7 @@ class CustomerController < ApplicationController
     #search_key:关键词
     #page:当前页面
     @customers = Customer.get_customer_list(nil,params[:search_key],params[:page])
+    Log.log(current_user.id,request.remote_ip,'customer_index','search_key:'+params[:search_key].to_s+',page:'+params[:page].to_s)
   end
   
   #新增客户信息
@@ -16,6 +17,7 @@ class CustomerController < ApplicationController
     @doctor = Doctor.get_all_doctor
     @nurse = Nurse.get_all_nurse
     @action = :create
+    Log.log(current_user.id,request.remote_ip,'customer_new','')
   end
 
 
@@ -102,13 +104,14 @@ class CustomerController < ApplicationController
     customer_info['old_photo'] = customer_params[:old_photo]
     #治疗后照片
     customer_info['new_photo'] = customer_params[:new_photo]
-    
     @customer = Customer.create(customer_info)
     respond_to do |format|
       if @customer.save
+        Log.log(current_user.id,request.remote_ip,'customer_create','successfully')
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
+        Log.log(current_user.id,request.remote_ip,'customer_create','false')
         format.html { render :new }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
@@ -119,11 +122,13 @@ class CustomerController < ApplicationController
   #显示客户的详细信息
   def show
     @customer = Customer.show(params[:id])
+    Log.log(current_user.id,request.remote_ip,'customer_show','customer_id:'+params[:id].to_s)
   end
   
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
+    Log.log(current_user.id,request.remote_ip,'customer_destroy','customer_id:'+params[:id].to_s)
     respond_to do |format|
       format.html { redirect_to customer_index_url }
       format.json { head :no_content }
@@ -134,15 +139,18 @@ class CustomerController < ApplicationController
   def edit
     @customer = Customer.find(params[:id])
     @action = :update
+    Log.log(current_user.id,request.remote_ip,'customer_edit','customer_id:'+params[:id].to_s)
   end
 
   def update
     @customer = Customer.find(params[:id])
     respond_to do |format|
       if @customer.update_attributes(customer_params)
+        Log.log(current_user.id,request.remote_ip,'customer_update','customer_id:'+params[:id].to_s+',successfully')
         format.html { redirect_to customer_url, notice: 'Customer was successfully updated.' }
         format.json { head :no_content }
       else
+        Log.log(current_user.id,request.remote_ip,'customer_edit','customer_id:'+params[:id].to_s+',false')
         format.html { render action: "edit" }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
