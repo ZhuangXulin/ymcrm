@@ -10,64 +10,67 @@
 
 								<table border="1px" cellspacing="0px" cellpadding="0px">
 	<tr>
-		<td align="center" width="10%">客户编号</td>
+		<td align="center" width="10%" bgcolor="#F7F7F7"><strong>客户编号</strong></td>
 		<td width="20%"><%= @customer.cid %></td>
-		<td align="center" width="20%">姓名</td>
+		<td align="center" width="20%" bgcolor="#F7F7F7"><strong>姓名</strong></td>
 		<td width="20%"><%= @customer.name %></td>
-		<td align="center" width="10%">身份证号</td>
+		<td align="center" width="10%" bgcolor="#F7F7F7"><strong>身份证号</strong></td>
 		<td width-"20%"><%= @customer.id_number %></td>
 	</tr>
 	<tr>
-    	<td align="center">生日</td>
+    	<td align="center" bgcolor="#F7F7F7"><strong>生日</strong></td>
     	<td><%= @customer.birthday %></td>
-    	<td align="center">性别</td>
+    	<td align="center" bgcolor="#F7F7F7"><strong>性别</strong></td>
     	<td><%= @customer.gender %></td>
-    	<td align="center">婚姻</td>
+    	<td align="center" bgcolor="#F7F7F7"><strong>婚姻</strong></td>
 		<td><%= @customer.marriage %></td>
 	</tr>
 	
 	<tr>
-		<td align="center">联系电话</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>联系电话</strong></td>
 		<td colspan="3"><%= @customer.phone %></td>
-		<td align="center">民族</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>民族</strong></td>
 		<td><%= @customer.sub_nationality %></td>
 	</tr>
 	
 	<tr>
-    	<td align="center">医师</td>
+    	<td align="center" bgcolor="#F7F7F7"><strong>医师</strong></td>
     	<td colspan="2"><%= @customer.doctor_id %></td>
-    	<td align="center">护士</td>
+    	<td align="center" bgcolor="#F7F7F7"><strong>护士</strong></td>
     	<td colspan="2"><%= @customer.nurse_id %></td>
 	</tr>
 	
 	<tr>
-		<td align="center">联系地址</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>联系地址</strong></td>
 		<td colspan="3"><%= @customer.address %></td>
-		<td align="center">籍贯</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>籍贯</strong></td>
 		<td><%= @customer.place_of_origin %></td>
 	</tr>
 	
 	<tr>
-		<td align="center">疗程内容</td>
-		<td colspan="5"><%= @customer.course_content %></td>
+		<td align="center" bgcolor="#F7F7F7"><strong>疗程内容</strong></td>
+		<td colspan="5">
+			<%= link_to '疗程信息', '/treatment?search_key='+ @customer.name.to_s %><br>
+			<%= @customer.course_content %>
+		</td>
 	</tr>
 	
 	<tr>
-		<td align="center">职业</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>职业</strong></td>
 		<td colspan="5"><%= @customer.occupation %>
 
 		</td>
 	</tr>
 	
 	<tr>
-		<td align="center">到店渠道</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>到店渠道</strong></td>
 		<td colspan="5"><%= @customer.to_store_channel %>
 
 		</td>
 	</tr>
 	
 	<tr>
-		<td align="center">特殊病史</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>特殊病史</strong></td>
 		<td colspan="5">
 			<%= @customer.special_history %><br>
 			是否怀孕:<%= @customer.pregnant %>
@@ -75,21 +78,21 @@
 	</tr>
 	
 	<tr>
-		<td align="center">血型</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>血型</strong></td>
 		<td colspan="5"><%= @customer.blood_type %>
 
 		</td>
 	</tr>
 	
 	<tr>
-		<td align="center">手术史</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>手术史</strong></td>
 		<td colspan="5"><%= @customer.operation_history %>
 
 		</td>
 	</tr>
 	
 	<tr>
-		<td align="center">服药史</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>服药史</strong></td>
 		<td colspan="5">
 			是否对药物过敏:<%= @customer.drug_allergy %><br>
 			目前是否使用药物:<%= @customer.medicine %>
@@ -97,7 +100,7 @@
 	</tr>
 	
 	<tr>
-		<td align="center">美容史</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>美容史</strong></td>
 		<td colspan="5">
 			美疗类:<%= @customer.beauty_therapy %><br>
 			光疗类:<%= @customer.phototherapy %><br>
@@ -108,7 +111,7 @@
 	</tr>
 	
 	<tr>
-		<td align="center">治疗需求</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>治疗需求</strong></td>
 		<td colspan="5"> 
 			肤质:<%= @customer.skin %> <br>
 			皱纹:<%= @customer.wrinkle %> <br>
@@ -120,12 +123,12 @@
 	</tr>
 	
 	<tr>
-		<td align="center">其他</td>
+		<td align="center" bgcolor="#F7F7F7"><strong>其他</strong></td>
 		<td colspan="5"><%= @customer.other_info %></td>
 	</tr>
 	
 	<tr>
-		<td align='center'>疗程前后照片对比</td>
+		<td align='center' bgcolor="#F7F7F7"><strong>疗程前后照片对比</strong></td>
 		<td colspan="2" align='center'>疗程前
 		<br>
 		<%= image_tag @customer.old_photo.url(:medium) %>

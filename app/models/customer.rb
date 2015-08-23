@@ -79,7 +79,8 @@ class Customer < ActiveRecord::Base
                   :blood_vessel_text => customer_info['blood_vessel_text'],   #血管其他
                   :pore_text => customer_info['pore_text'],      #毛孔其他
                   :pigment_text => customer_info['pigment_text'],   #色素其他
-                  :figure_text => customer_info['figure_text']   #体型其他
+                  :figure_text => customer_info['figure_text'],   #体型其他
+                  :operator_id => customer_info['operator_id']   #操作者ID
                 )
 
   end

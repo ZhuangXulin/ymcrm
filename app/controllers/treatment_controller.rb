@@ -67,8 +67,6 @@ class TreatmentController < ApplicationController
     end
   end
 
-	
-
   private
   def treatment_params
     params.require(:treatment).permit(:cid, :treatment_content, :mid, :medicine_number, 

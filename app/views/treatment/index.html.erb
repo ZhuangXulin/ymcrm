@@ -31,14 +31,16 @@
 								      	<th wifth='5%'>折扣后价格</th>
 								      	<th width='5%'>实收</th>
 								      	<th width='10%'>备注</th>
-								      	<th width='10%' colspan="3">操作</th>
+								      	<th width='10%'>操作</th>
 								    </tr>
 								  </thead>
 
 								  <tbody>
 									  <% if @treatment != nil %>
 								    <% @treatment.each_with_index do |treatment,i| %>
-								      <tr>
+								      <tr <%= if (i+1)%2 ==0
+								      	"style=background-Color:#F7F7F7"
+								      end%>>
 										<td align='center'><%= i+1 %></td>
 										<td align='center'><%= treatment.created_at.localtime%></td>
 								        <td align='center'><%= treatment.cid%></td>
@@ -52,9 +54,11 @@
 								        <td align='center'><%= treatment.discounted_price%></td>
 								        <td align='center'><%= treatment.actual_income%></td>
 								        <td align='center'><%= treatment.remark%></td>
-								        <td align='center'><%= link_to 'Show', treatment %></td>
-								        <td align='center'><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
-								        <td align='center'><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								        <td align='center'>
+								        	<%= link_to 'Show', treatment %>
+								        	<%= link_to 'Edit', edit_treatment_path(treatment) %>
+								        	<%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %>
+								        </td>
 								      </tr>
 								    <% end %>
 									<% end %>

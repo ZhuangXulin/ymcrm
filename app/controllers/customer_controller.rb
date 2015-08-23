@@ -104,6 +104,8 @@ class CustomerController < ApplicationController
     customer_info['old_photo'] = customer_params[:old_photo]
     #治疗后照片
     customer_info['new_photo'] = customer_params[:new_photo]
+    #操作者ID
+    customer_info['operator_id'] = current_user.id
     @customer = Customer.create(customer_info)
     respond_to do |format|
       if @customer.save
@@ -155,11 +157,6 @@ class CustomerController < ApplicationController
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  #根据客户名称模糊搜索
-  def search
-    
   end
 
   private

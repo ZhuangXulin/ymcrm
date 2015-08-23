@@ -22,21 +22,25 @@
 										<th width='10%'>药品编号</th>
 								      	<th width='20%'>药品名称</th>
 								      	<th width='30%'>药品描述</th>
-								      	<th width='30%' colspan="3">操作</th>
+								      	<th width='30%'>操作</th>
 								    </tr>
 								  </thead>
 
 								  <tbody>
 									  <% if @medicine != nil %>
 								    <% @medicine.each_with_index do |medicine,i| %>
-								      <tr>
+								      <tr <%= if (i+1)%2 ==0
+								      	"style=background-Color:#F7F7F7"
+								      end%>>
 										  <td align='center'><%= i+1 %></td>
 										  <td align='center'><%= medicine.mid %></td>
 								        <td align='center'><%= medicine.name %></td>
 								        <td align='center'><%= medicine.description %></td>
-								        <td align='center'><%= link_to 'Show', medicine %></td>
-								        <td align='center'><%= link_to 'Edit', edit_medicine_path(medicine) %></td>
-								        <td align='center'><%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								        <td align='center'>
+								        	<%= link_to 'Show', medicine %>&nbsp;
+								        	<%= link_to 'Edit', edit_medicine_path(medicine) %>&nbsp;
+								        	<%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' } %>
+								        </td>
 								      </tr>
 								    <% end %>
 									<% end %>
