@@ -11,4 +11,8 @@ class Medicine < ActiveRecord::Base
   def self.get_all_medicine
     Medicine.all
   end
+
+  def self.get_medicine_count
+  	Medicine.count()
+  end
 end

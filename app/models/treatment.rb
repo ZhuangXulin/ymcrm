@@ -12,4 +12,7 @@ class Treatment < ActiveRecord::Base
   	Treatment.find_by_sql("SELECT  t.*,(select name from customers where cid=t.cid) as cname,(select name from medicines where mid=t.mid) as mname FROM `treatments` as t WHERE t.id = #{treatment_id}")
   end
 
+  def self.get_treatment_count
+    Treatment.count()
+  end
 end
