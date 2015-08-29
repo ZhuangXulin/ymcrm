@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   	@nurse_count = Nurse.get_nurse_count
   	@treatment_count = Treatment.get_treatment_count
   	@medicine_count = Medicine.get_medicine_count
+  	@treatment_all_income = Treatment.get_all_income
   	Log.log(current_user.id,request.remote_ip,'home_index','')
   end
 end
