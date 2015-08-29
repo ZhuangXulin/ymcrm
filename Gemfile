@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 # Use devise,cancan and rolify to verify
-gem 'devise'
+gem 'devise', '~> 3.5.1'
 gem 'cancan'
 gem 'rolify'
 
